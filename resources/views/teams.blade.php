@@ -65,8 +65,42 @@
         </style>
     </head>
     <body>
- @foreach ($teams as $team)
-        <li>{{ $team }} </li>
-@endforeach
+  <div class="position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @if (Auth::check())
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ url('/login') }}">Login</a>
+                        <a href="{{ url('/register') }}">Register</a>
+                    @endif
+                </div>
+            @endif
+
+            <div class="content">
+                <div class="title m-b-md">
+                    Welcome to the Teams page.
+                </div>
+
+		
+
+                <div class="links">
+<!--                    <a href="https://laravel.com/docs">Documentation</a>-->
+
+                    <a href="http://localhost:8000/teams">Team</a>
+                     <a href="http://localhost:8000/fixtures">Fixtures</a>
+                    <a href="http://localhost:8000">Home</a>
+                    
+                    
+                    
+                    
+        <div class ="position-ref full-height" style="margin-top: 40px;">           
+                    @foreach ($teams as $team)
+      		  <li>{{ $team }} </li>
+		@endforeach
+                </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

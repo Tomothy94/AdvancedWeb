@@ -23,3 +23,9 @@ Route::get('teams', function() {
     $teams = ['Dalton Ducks', 'Almondbury Alligators', 'Lepton Lions'];
     return view('/teams', compact('teams'));
 });
+
+Route::get('fixtures', function() {
+    return view('/fixtures');
+});
+
+

@@ -65,7 +65,7 @@
         </style>
     </head>
     <body>
-        <div class="position-ref full-height">
+         <div class="position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Welcome to Sunday League Signup
+                    Welcome to the fixture page
                 </div>
 
                 <div class="links">
@@ -87,8 +87,8 @@
 
                     <a href="http://localhost:8000/teams">Team</a>
                      <a href="http://localhost:8000/fixtures">Fixtures</a>
+                    <a href="http://localhost:8000"> Home page</a>
                 </div>
             </div>
-        </div>
-    </body>
+        </div>    </body>
 </html>
