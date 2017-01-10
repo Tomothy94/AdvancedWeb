@@ -14,7 +14,7 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: #000000;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -25,10 +25,15 @@
                 height: 100vh;
             }
 
-            .flex-center {
+            .flex-center  {
                 align-items: center;
                 display: flex;
                 justify-content: center;
+                font-size: 20px;
+                color: #000000;
+                 text-transform: uppercase;
+                 letter-spacing: .1rem;
+                text-decoration: none;
             }
 
             .position-ref {
@@ -47,6 +52,7 @@
 
             .title {
                 font-size: 48px;
+                margin-buttom: 30px;
             }
 
             .links > a {
@@ -79,7 +85,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Welcome to the fixture page
+                    Welcome to the fixture page!
+                  
                 </div>
 
                 <div class="links">
@@ -89,6 +96,17 @@
                      <a href="http://localhost:8000/fixtures">Fixtures</a>
                     <a href="http://localhost:8000"> Home page</a>
                 </div>
-            </div>
-        </div>    </body>
+                
+                
+                <div class ="position-ref flex-center" style="margin-top:40px;">
+              
+                  All upcoming games will be displayed here!
+                </div>
+             <div class ="position-ref full-height" style="margin-top: 40px;"> 
+                
+                Dalton Ducks vs Almondbury Aligators
+                </div>
+                
+        </div> 
+    </body>
 </html>
