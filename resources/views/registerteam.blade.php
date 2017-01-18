@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-
+       
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -64,6 +64,14 @@
             }
         </style>
     </head>
+     <php
+       <form>
+  username:<br>
+  <input type="text" name="Username"><br>
+  password:<br>
+  <input type="text" name="Password">
+</form>
+          ></php>
     <body>
         <div class="position-ref full-height">
             @if (Route::has('login'))
@@ -85,10 +93,8 @@
                 <div class="links">
 <!--                    <a href="https://laravel.com/docs">Documentation</a>-->
 
-                    <a href="http://localhost:8000/teams">Team</a>
-                     <a href="http://localhost:8000/fixtures">Fixtures</a>
-                     <a href="{{ url('/loginpage') }}">Login</a>
-                       
+                    <a href="http://localhost:8000/loginpage">Login</a>
+                     
                 </div>
             </div>
         </div>

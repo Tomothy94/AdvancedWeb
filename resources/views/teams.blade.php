@@ -43,16 +43,19 @@
 
             .content {
                 text-align: center;
+                font-size: 20px;
+                font-weight: bold;
             }
 
             .title {
                 font-size: 84px;
+                color: coral;
             }
 
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 12px;
+                font-size: 18px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -86,10 +89,10 @@
 
                 <div class="links">
 <!--                    <a href="https://laravel.com/docs">Documentation</a>-->
-
+                    
+                      <a href="http://localhost:8000">Home</a>
                     <a href="http://localhost:8000/teams">Team</a>
                      <a href="http://localhost:8000/fixtures">Fixtures</a>
-                    <a href="http://localhost:8000">Home</a>
                     
                     
                     
