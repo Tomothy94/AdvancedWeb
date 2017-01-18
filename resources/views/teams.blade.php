@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,6 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
+        
+       
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -14,7 +18,7 @@
         <style>
             html, body {
                 background-color: #fff;
-                color: #636b6f;
+                color: #000000;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -25,10 +29,15 @@
                 height: 100vh;
             }
 
-            .flex-center {
+            .flex-center  {
                 align-items: center;
                 display: flex;
                 justify-content: center;
+                font-size: 20px;
+                color: #000000;
+                 text-transform: uppercase;
+                 letter-spacing: .1rem;
+                text-decoration: none;
             }
 
             .position-ref {
@@ -43,19 +52,17 @@
 
             .content {
                 text-align: center;
-                font-size: 20px;
-                font-weight: bold;
             }
 
             .title {
-                font-size: 84px;
-                color: coral;
+                font-size: 48px;
+                margin-buttom: 30px;
             }
 
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 18px;
+                font-size: 12px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -81,29 +88,37 @@
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Welcome to the Teams page.
+              <div class="title m-b-md">
+                    Welcome to the Team page!
+                  
                 </div>
-
-		
 
                 <div class="links">
 <!--                    <a href="https://laravel.com/docs">Documentation</a>-->
-                    
-                      <a href="http://localhost:8000">Home</a>
+
                     <a href="http://localhost:8000/teams">Team</a>
                      <a href="http://localhost:8000/fixtures">Fixtures</a>
+                    <a href="http://localhost:8000"> Home page</a>
+                </div>
                     
-                    
-                    
-                    
+                <form role="form" method="POST" action="{{ url('/addteam') }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <div class='form-group'>
+                        <input type='text' placeholder="Team Name" name='name'/>
+                        <input type='submit' class='form-control' value="Add">
+                    </div>
+                </form>   
+                
         <div class ="position-ref full-height" style="margin-top: 40px;">           
                     @foreach ($teams as $team)
-      		  <li>{{ $team }} </li>
-		@endforeach
+      		        <li>{{ $team }} </li>
+		              @endforeach
                 </div>
                 </div>
             </div>
-        </div>
     </body>
 </html>
+
+
+
+

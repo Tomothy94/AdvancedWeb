@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\Request;
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,8 +23,32 @@ Route::get('about', function() {
 });
 
 Route::get('teams', function() {
-    $teams = ['Dalton Ducks', 'Almondbury Alligators', 'Lepton Lions', 'Rawthorpe Ravens', 'Moldgreen Marauders', 'Fartown Foxes', 'Dewsbury Devils', 'The Mirfield Royales', 'Kirkheaton Kings', 'Golcar Giants', 'Kirkburton Thunderers', 'Stocksmoor Harriers', 'Linthewaite Tornados', 'Thorncliff Top eleven', 'Shelley Strikers', 'Brockholes Bandits'];
+         
+    $path = $_SERVER['DOCUMENT_ROOT']."/data.php";
+    include_once ($path);
+    $teams = [];
+    $sql = "SELECT * FROM Teams";
+    $result = mysqli_query($conn,$sql);
+    while($row = mysqli_fetch_array($result)){
+        array_push($teams,$row['Team Name']);
+    }
     return view('/teams', compact('teams'));
+});
+
+Route::post('/addteam',function(Request $request){
+    $path = $_SERVER['DOCUMENT_ROOT']."/data.php";
+    include_once ($path);
+    $name = Request::get('name');
+    $sql = "INSERT INTO `Teams` (`Team Name`) VALUES ('".$name."')";
+    
+    if (mysqli_query($conn,$sql) === TRUE) {
+        echo "New record created successfully";
+        return redirect ('/teams');
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    
+    
 });
 
 Route::get('fixtures', function() {
