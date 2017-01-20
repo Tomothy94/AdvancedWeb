@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,8 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
-        
-       
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -75,7 +71,7 @@
         </style>
     </head>
     <body>
-  <div class="position-ref full-height">
+         <div class="position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @if (Auth::check())
@@ -88,9 +84,9 @@
             @endif
 
             <div class="content">
-              <div class="title m-b-md">
-                    Welcome to the Team page!
-                  
+                <div class="title m-b-md">
+                    Edit Team Page!
+                 
                 </div>
 
                 <div class="links">
@@ -100,34 +96,18 @@
                      <a href="http://localhost:8000/fixtures">Fixtures</a>
                     <a href="http://localhost:8000"> Home page</a>
                 </div>
+                
+                <div style="margin-top: 40px;">
+                    <form role="form" method="POST" action="{{ url('/updateteam') }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="text" Name="Name" value="{{$team['Name']}}"/>
+                        <input type="hidden" Name="Id" value="{{$team['Id']}}"/>
+                        <input type="submit" value="Update"/>
+                    </form>
                     
-                <form role="form" method="POST" action="{{ url('/addteam') }}">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class='form-group'>
-                        <input type='text' placeholder="Team Name" name='name'/>
-                        <input type='submit' class='form-control' value="Add">
-                    </div>
-                </form>   
-                
-                        <div class ="position-ref full-height" style="margin-top: 40px;">           
-                                    @foreach ($teamsresult as $teamresult)
-                                    <li>{{ $teamresult['TeamName'] }}</li>
-                
-                                    <form role="form" method="POST" action="{{ url('/editteam') }}">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="hidden" name="Name" value="{{$teamresult['TeamName']}}"/>
-                                        <input type="hidden" name="Id" value="{{$teamresult['TeamId']}}"/>
-                                        <input type="submit" value="Edit" />
-                                    </form>
-                
-
-                                      @endforeach
-                            </div>
                 </div>
-            </div>
+             
+            </div> 
+        </div>
     </body>
 </html>
-
-
-
-

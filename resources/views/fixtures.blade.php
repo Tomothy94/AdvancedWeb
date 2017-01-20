@@ -86,7 +86,7 @@
             <div class="content">
                 <div class="title m-b-md">
                     Welcome to the fixture page!
-                  
+                 
                 </div>
 
                 <div class="links">
@@ -100,13 +100,38 @@
                 
                 <div class ="position-ref flex-center" style="margin-top:40px;">
               
-                  All upcoming games will be displayed here!
+                  All past games will be displayed here!
+                     
                 </div>
-             <div class ="position-ref full-height" style="margin-top: 40px;"> 
+             <div style="margin-top: 40px;"> 
                 
-                Dalton Ducks vs Almondbury Aligators
+                @foreach ($fixtures as $fixture)
+                    <li>{{ $fixture['HomeTeamName']}} {{ $fixture['HomeTeamScore']}} vs {{ $fixture['AwayTeamName']}} {{ $fixture['AwayTeamScore']}}</li>
+                    <form role="form" method="POST" action="{{ url('/deleteteam') }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" name="FixtureId" value="{{$fixture['FixtureId']}}"/>
+                        <input type="submit" value="Delete" />
+                    </form>
+                        
+                    @endforeach
                 </div>
                 
-        </div> 
+                <div>
+             All future games will be shown here. Please add future fixtures!    
+                    
+                </div>
+                
+                
+             <div>
+                <form role="form" method="POST" action="{{ url('/addfixture') }}">
+                    Hometeam name:<br>
+                    <input type="text" name="Home Team"><br>
+                    Away Team Name:<br>
+                    <input type="text" name="Away Team">
+                    <input type='submit' class='form-control' value="Add"> 
+                 </form>
+                </div>  
+            </div> 
+        </div>
     </body>
 </html>
