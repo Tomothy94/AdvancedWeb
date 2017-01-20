@@ -1,1 +1,0 @@
-This website allows Sunday league teams to log in to see their future fixture matches and allows new teams to register for the next season. 
